@@ -1,0 +1,79 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using Cinema.Controllers;
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/chart.css">
+
+<div class="sidebar">
+    <div class="sidebar-logo">
+        <a href="/Home/Index">
+            <img width="150px" height="40px" src="https://e-cinema.vercel.app/logo.png" alt="">
+        </a>
+    </div>
+    <div class="sidebar-dashboard">
+        <ul class="sidebar-list">
+            <li class="sidebar-item"><i class="fas fa-home" style="color:red"></i> <a href="/Movie/Dashboard" class="sidebar-link" style="color: red;">Home</a></li>
+            <li class="sidebar-item">
+                <i class="fas fa-film-alt"></i><a href="/Movie/List" class="sidebar-link">Movie</a>
+            </li>
+            <li class="sidebar-item"><i class="fas fa-user"></i> <a href="/Person/List" class="sidebar-link">User</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="container">
+    <div class="dashboard-content">
+        <div class="dashboard-static">
+            <i class="fas fa-users dashboard-icon"></i>
+            <h3 class="dashboard-user">User</h3>
+            <p class="dashboard-tt">Total : @ViewBag.user_tt (user)</p>
+        </div>
+        <div class="dashboard-static">
+            <i class="fas fa-film-alt dashboard-icon"></i>
+            <h3 class="dashboard-user">Movie</h3>
+            <p class="dashboard-tt">Total : @ViewBag.movie_tt (movie)</p>
+        </div>
+        <div class="dashboard-static">
+            <i class="fas fa-film dashboard-icon"></i>
+            <h3 class="dashboard-user">Genre</h3>
+            <p class="dashboard-tt">Total : @ViewBag.genre_tt (genre)</p>
+        </div>
+    </div>
+    <div class="dashboard-chart">
+        <h1 class="dashboard-chart-heading">Chart (Top 7 Movies)</h1>
+        <canvas id="myChart">
+        </canvas>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const labels = ['@ViewBag.charts[0].Name', '@ViewBag.charts[1].Name', '@ViewBag.charts[2].Name', '@ViewBag.charts[3].Name',
+        '@ViewBag.charts[4].Name', '@ViewBag.charts[5].Name', '@ViewBag.charts[6].Name']
+        const data = {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Totle Rating',
+                    backgroundColor: 'red',
+                    borderColor: 'red',
+                    data: [@ViewBag.charts[0].Score, @ViewBag.charts[1].Score, @ViewBag.charts[2].Score, @ViewBag.charts[3].Score,
+        @ViewBag.charts[4].Score, @ViewBag.charts[5].Score, @ViewBag.charts[6].Score],
+                },
+            ],
+        }
+        const config = {
+            type: 'bar',
+            data: data,
+        }
+
+        const canvas = document.getElementById('myChart');
+        const chart = new Chart(canvas, config);
+
+</script>

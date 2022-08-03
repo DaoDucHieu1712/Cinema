@@ -1,0 +1,90 @@
+.container {
+    width: 70%;
+    min-height: 1000px;
+    margin: 50px auto;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.container-left {
+    width: calc(30% - 10px);
+}
+
+.container-right {
+    width: calc(70% - 10px);
+
+}
+
+.movie-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #fff;
+    background-color: var(--second-color);
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    border: 1px solid var(--second-color);
+    cursor: pointer;
+}
+
+.movie-main {
+    margin-left: 10px;
+    font-style: italic;
+}
+
+.movie-name {
+    margin-bottom: 35px;
+    color: var(--second-color);
+}
+
+.movie-cmt-heading {
+    color: var(--second-color);
+}
+
+.movie-content {
+    font-weight: bold;
+    margin-top: 35px;
+    font-size: 16px;
+
+}
+
+.movie-link:hover {
+    opacity: 0.7;
+}
+
+.movie-info {
+    width: 100%;
+    padding-bottom: 35px;
+    border-bottom: 1px solid #999;
+}
+
+.movie-cmt {
+    margin-top: 25px;
+}
+
+.movie-comment {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.movie-textbox {
+    width: 65px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.movie-group {
+    margin-top: 35px;
+    padding: 10px;
+    background-color: #222526;
+}
+
+.movie-textarea {
+    padding: 10px;
+}
+
+.movie-form {
+    margin-top: 10px;
+}

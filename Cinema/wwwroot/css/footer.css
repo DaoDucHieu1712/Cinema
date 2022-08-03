@@ -1,0 +1,23 @@
+.footer {
+    margin-top: 250px;
+    color: #fff;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 17px;
+    background-color: #262B33;
+}
+
+.footer-left {
+    margin-left: 15px;
+}
+
+.footer-right {
+    margin-right: 5px;
+}
+
+.footer-right i {
+    font-size: 17px;
+    width: 20px;
+    margin: 0 3px;
+}

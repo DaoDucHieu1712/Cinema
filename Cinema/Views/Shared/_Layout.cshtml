@@ -1,0 +1,66 @@
+﻿@using System.Text.Json;
+@using Cinema.Models;
+@using Microsoft.AspNetCore.Http;
+
+@{  
+
+    Person user = Context.Session.GetString("user") != null ?
+    JsonSerializer.Deserialize<Person>(Context.Session.GetString("user")) : null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Cinema</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="~/css/base.css">
+    <link rel="stylesheet" href="~/css/header.css">
+    <link rel="stylesheet" href="~/css/footer.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo">
+            <a href="#home" class="header-home">
+                <img src="https://e-cinema.vercel.app/logo.png" width="175" height="45" alt="">
+            </a>
+        </div>
+        <div class="header-content">
+            <ul class="header-list">
+                <li class="header-item"><a href="/Home" class="header-link">Home</a></li>
+            </ul>
+        </div>
+        <div class="header-search">
+            <form action="/Home/Search" method="get">
+                <div class="header-form">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="header-input" name="txtSearch" value="@ViewBag.txtSearch">
+                </div>
+            </form>
+        </div>
+        <div class="header-user">
+            @if (user == null)
+            {
+                <a href="/Home/Login" class="header-signup">Sign up</a>
+            }
+            else
+            {
+                <span>@user.Fullname</span><span>/</span>
+                <a href="/Home/Logout" class="header-signup">Logout</a>
+            }
+        </div>
+    </header>
+    @RenderBody()
+    <footer class="footer">
+        <div class="footer-left">
+            <p class="footer-cr">
+                @@Copyright Hieuddhe151352@fpt.edu.vn
+            </p>
+        </div>
+        <div class="footer-right">
+            Contact me :<i class="fab fa-github"></i> <i class="fab fa-facebook"></i><i class="fab fa-twitter"></i>
+        </div>
+    </footer>
+</body>
+</html>

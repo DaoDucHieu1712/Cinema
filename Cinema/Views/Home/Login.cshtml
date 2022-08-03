@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
+}
+<link rel="stylesheet" href="~/css/login.css">
+
+<div class="container">
+    <form action="/Home/Login" method="post">
+        <div class="login">
+            <h2 class="login-heading">Đăng nhập</h2>
+            <div class="login-form">
+                <input type="email" name="email" class="login-input" placeholder="Email hoặc số điện thoại">
+            </div>
+            <div class="login-form">
+                <input type="password" name="password" class="login-input" placeholder="Mật khẩu">
+            </div>
+            <h3 style="color:red">@ViewBag.err</h3>
+            <div class="login-form" style="margin-top: 50px">
+                <button class="login-submit">Đăng nhập</button>
+            </div>
+            <div class="login-sign">
+                <p class="login-r">Bạn mới tham gia Cinema? <a href="/Home/Register" class="login-link">Đăng ký ngay</a></p>
+                <p class="login-tht">
+                    Những điều khoản và những gì bạn cần lưu ý để bảo vệ tài khoản <a href="#"
+                                                                                      class="login-link">Tìm hiểu ngay</a>
+                </p>
+            </div>
+    </form>
+</div>
+    </div>

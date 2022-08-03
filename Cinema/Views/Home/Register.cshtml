@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
+}
+<link rel="stylesheet" href="~/css/register.css">
+
+<div class="container">
+    <form action="/Home/Register" method="post">
+        <div class="login">
+            <h2 class="login-heading">Đăng ký</h2>
+            <div class="login-form">
+                <input type="text" name="NewPerson.Fullname" class="login-input" placeholder="Nhập tên của bạn">
+            </div>
+            <div class="login-form login-radion-f">
+                <input type="radio" class="login-input" name="gender">
+                <label for="">Male</label>
+                <input type="radio" class="login-input" name="gender">
+                <label for="">Female</label>
+            </div>
+            <div class="login-form">
+                <input type="email" name="NewPerson.Email" class="login-input" placeholder="Email hoặc số điện thoại">
+            </div>
+            <div class="login-form">
+                <input type="password" name="NewPerson.Password" class="login-input" placeholder="Mật khẩu">
+            </div>
+            <h3 style="color:red">@ViewBag.alert</h3>
+            <div class="login-form" style="margin-top: 50px">
+                <button class="login-submit">Đăng ký</button>
+            </div>
+
+            <div class="login-sign">
+                <p class="login-r">Bạn đã có tài khoản <a href="/Home/Login" class="login-link">Đăng nhập ngay</a></p>
+                <p class="login-tht">
+                    Những điều khoản và những gì bạn cần lưu ý để bảo vệ tài khoản <a href="#"
+                                                                                      class="login-link">Tìm hiểu ngay</a>
+                </p>
+            </div>
+</form>
+</div>

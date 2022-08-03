@@ -1,0 +1,62 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/user.css">
+
+<div class="sidebar">
+    <div class="sidebar-logo">
+        <a href="/Home/Index">
+            <img width="150px" height="40px" src="https://e-cinema.vercel.app/logo.png" alt="">
+        </a>
+    </div>
+    <div class="sidebar-dashboard">
+        <ul class="sidebar-list">
+            <li class="sidebar-item"><i class="fas fa-home"></i> <a href="/Movie/Dashboard" class="sidebar-link">Home</a></li>
+            <li class="sidebar-item">
+                <i class="fas fa-film-alt"></i><a href="/Movie/List" class="sidebar-link" ">Movie</a>
+            </li>
+            <li class="sidebar-item"><i class="fas fa-user" style="color:red"></i> <a href="/Person/List" class="sidebar-link" style="color: red;">User</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="container">
+    <div class="user-create">
+        <span class="user-heading">USER MANAGEMENT</span>
+    </div>
+    <div class="order-info__table">
+        <table>
+            <thead>
+                <tr>
+                    <th>PersonId</th>
+                    <th>FullName</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                    <th>Active</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.persons)
+                {
+                    <tr>
+                        <td>@item.PersonId</td>
+                        <td>@item.Fullname</td>
+                        <td>@item.Gender</td>
+                        <td>@item.Email</td>
+                        <td>@(item.IsActive == true ?"Active":"Block")</td>
+                        <td>
+                            <a href="/Person/UnBlock?id=@item.PersonId"><i class="fas fa-shield-check user-icon"></i></a>
+                            <a href="/Person/Block?id=@item.PersonId"><i class="far fa-ban user-icon"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

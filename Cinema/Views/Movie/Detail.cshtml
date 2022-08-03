@@ -1,0 +1,65 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using System.Text.Json;
+@using Cinema.Models;
+@using Microsoft.AspNetCore.Http;
+@{
+
+    Person user = Context.Session.GetString("user") != null ?
+    JsonSerializer.Deserialize<Person>(Context.Session.GetString("user")) : null;
+}
+
+<link rel="stylesheet" href="~/css/movie-detail.css">
+
+<div class="container">
+    <div class="container-left">
+        <div class="movie-image">
+            <img width="350px" height="650px"
+                 src="@ViewBag.movie.Image" alt="">
+        </div>
+    </div>
+    <div class="container-right">
+        <div class="movie-info">
+            <h1 class="movie-name">@ViewBag.movie.Title</h1>
+            <span class="movie-content">The loai : </span><span class="movie-main">@ViewBag.movie.Genre.Description</span><br>
+            <span class="movie-content">Diem danh gia : </span><span class="movie-main">@ViewBag.score</span><br>
+            <span class="movie-content">Mo ta : </span><span class="movie-main">
+                @ViewBag.movie.Description
+            </span><br>
+            @if (user.Type != 1 && user.IsActive == true)
+            {
+                <div class="movie-group">
+                    <form action="/Movie/Create" method="Post">
+                        <div class="movie-form">
+                            <span>Rate : </span>
+                            <input type="text" name="NewRate.MovieId" value="@ViewBag.movie.MovieId" hidden />
+                            <input type="number" name="NewRate.NumericRating" value="@ViewBag.mark" min="0" max="10" class="movie-textbox">
+                        </div>
+                        <div class="movie-form">
+                            <label for="">Comment</label><br>
+                            <textarea name="NewRate.Comment" class="movie-textarea" cols="30" rows="10">@ViewBag.cmt</textarea>
+                        </div>
+                        <button class="movie-link"> Danh gia</button>
+                    </form>
+                </div>
+            }
+        </div>
+        <div class="movie-cmt">
+            <h1 class="movie-cmt-heading">
+                Comment
+            </h1>
+            @foreach (var item in ViewBag.ratings)
+            {
+
+                <div class="movie-comment">
+                    <h3 class="movie-user">@item.Person.Fullname</h3>
+                    <span class="movie-cmt-title">@item.Comment</span>
+                </div>
+
+            }
+
+        </div>
+
+    </div>
+</div>

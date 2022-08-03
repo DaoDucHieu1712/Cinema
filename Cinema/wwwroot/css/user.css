@@ -1,0 +1,125 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15%;
+    height: 100vh;
+    background-color: var(--third-color);
+    padding: 25px;
+}
+
+a {
+    color: #fff;
+}
+
+li {
+    list-style-type: none;
+}
+
+.sidebar-logo {
+    text-align: center;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #999;
+}
+
+.sidebar-dashboard {
+    margin-top: 35px;
+    margin-left: 15px;
+    font-size: 16px;
+}
+
+
+
+.sidebar-item {
+    margin: 40px 0;
+}
+
+.sidebar-item i {
+    width: 25px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.sidebar-item:hover {
+    color: var(--second-color);
+
+}
+
+.sidebar-item a:hover {
+    color: var(--second-color);
+
+}
+
+.container {
+    width: 85%;
+    margin-left: 15%;
+    padding: 35px;
+    height: auto;
+}
+
+.order-info__table table {
+    margin-top: 35px 0 35px 0;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.order-info__table table thead {
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.order-info__table table thead tr {
+    color: white;
+    background-color: var(--second-color);
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.order-info__table table thead tr th {
+    text-align: center;
+    padding: 15px;
+}
+
+.order-info__table table thead tr th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.order-info__table table thead tr th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.order-info__table table tbody {
+    font-size: 1.1rem;
+}
+
+.order-info__table table tbody tr:nth-child(even) {
+    background-color: rgba(204, 204, 204, 0.295);
+}
+
+.order-info__table table tbody tr:last-child {
+    border-bottom: 4px solid var(--second-color);
+}
+
+.order-info__table table tbody td {
+    text-align: center;
+    padding: 15px;
+    border-bottom: 1px solid #999;
+}
+
+.order-info__table table tbody td a {
+    color: #555;
+}
+
+.user-create {
+    margin-bottom: 35px;
+}
+
+.user-heading {
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.user-icon {
+    color: #fff;
+    margin: 0 5px;
+}

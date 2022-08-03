@@ -1,0 +1,153 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/dashboard.css">
+
+<div class="create">
+    <div class="create-model">
+        <div class="create-model-left">
+            <h2 class="create-heading">Create Movies</h2>
+        </div>
+        <div class="create-model-right">
+            <i class="fas fa-times create-close"></i>
+        </div>
+    </div>
+    <form action="/Movie/Insert" method="POST">
+        <div class="create-form">
+            <label for="" class="create-lable">Title</label><br>
+            <input type="text" name="NewMovie.Title" class="create-input">
+        </div>
+        <div class="create-form">
+            <label for="" class="create-lable">Year</label><br>
+            <input type="text" name="NewMovie.Year" class="create-input">
+        </div>
+        <div class="create-form">
+            <label for="" class="create-lable">Image</label><br>
+            <input type="text" name="NewMovie.Image" class="create-input">
+        </div>
+        <div class="create-form">
+            <label for="" class="create-lable">Description</label><br>
+            <textarea name="NewMovie.Description" cols="30" rows="10" class="create-textarea"></textarea>
+        </div>
+        <div class="create-form">
+            <label for="" class="create-lable">Genral</label><br>
+            <select name="NewMovie.GenreId" class="create-select">
+                @foreach (var item in ViewBag.genres)
+                {
+                    <option value="@item.GenreId">@item.Description</option>
+                }
+            </select>
+        </div>
+        <div class="create-form" style="margin: 55px 0;">
+            <button class="create-submit">Add new Movie</button>
+        </div>
+    </form>
+</div>
+
+<div class="update">
+    <div class="update-model">
+        <div class="update-model-left">
+            <h2 class="update-heading">Update Movies</h2>
+        </div>
+        <div class="update-model-right">
+            <i class="fas fa-times update-close"></i>
+        </div>
+    </div>
+    <form action="/Movie/Update" method="get">
+        <div class="update-form">
+            <label for="" class="update-lable">Title</label><br>
+            <input type="text" class="update-input">
+        </div>
+        <div class="update-form">
+            <label for="" class="update-lable">Year</label><br>
+            <input type="text" class="update-input">
+        </div>
+        <div class="update-form">
+            <label for="" class="update-lable">Image</label><br>
+            <input type="text" class="update-input">
+        </div>
+        <div class="update-form">
+            <label for="" class="update-lable">Description</label><br>
+            <textarea name="" id="" cols="30" rows="10" class="update-textarea"></textarea>
+        </div>
+        <div class="update-form">
+            <label for="" class="update-lable">Genral</label><br>
+            <select name="" class="update-select">
+                <option>Hellp</option>
+                <option>Hellp</option>
+                <option>Hellp</option>
+            </select>
+        </div>
+        <div class="update-form" style="margin: 55px 0;">
+            <button class="update-submit">Save</button>
+        </div>
+    </form>
+</div>
+
+<div class="sidebar">
+    <div class="sidebar-logo">
+        <a href="/Home/Index">
+            <img width="150px" height="40px" src="https://e-cinema.vercel.app/logo.png" alt="">
+        </a>
+    </div>
+    <div class="sidebar-dashboard">
+        <ul class="sidebar-list">
+            <li class="sidebar-item"><i class="fas fa-home"></i> <a href="/Movie/Dashboard" class="sidebar-link">Home</a></li>
+            <li class="sidebar-item">
+                <i class="fas fa-film-alt" style="color:red"></i><a href="/Movie/List" class="sidebar-link" style="color: red;">Movie</a>
+            </li>
+            <li class="sidebar-item"><i class="fas fa-user"></i> <a href="/Person/List" class="sidebar-link">User</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="movie-create">
+        <span class="movie-heading">MOVIE MANAGEMENT</span>
+        <button class="movie-add"> + add new Movies</button>
+    </div>
+    <div class="movie-wraper">
+        @foreach (Movie item in ViewBag.movies)
+        {
+        <div class="movie-card">
+            <div class="movie-image">
+                <img src="@item.Image"
+                     width="135px" height="180px" alt="">
+            </div>
+            <div class="movie-title">
+                <h2 class="movie-name">@item.Title</h2>
+                <p class="movie-srg">Year : @item.Year</p>
+                <p class="movie-srg">Genere: @item.Genre.Description</p>
+                @{
+                    using (var db = new CenimaDBContext())
+                    {
+                        var rating = db.Rates.Where(x => x.MovieId == item.MovieId);
+                        double? count = 0;
+                        double s = 0;
+                        foreach (var a in rating)
+                        {
+                            count += a.NumericRating;
+                            s++;
+                        }
+                        var result = count / s;
+                        <p class="movie-srg">Score : @result</p>
+                    }
+                }
+            </div>
+            <div class="movie-action">
+                <a href="/Movie/Edit?id=@item.MovieId" style="padding:9.5px" class="movie-btn">Edit</a>
+                <button onclick="delete_Movie(@item.MovieId)" id="#delete-movie" class="movie-btn">Delete</button>
+            </div>
+        </div>
+        }
+
+    </div>
+</div>
+
+<script src="~/js/dashboard.js"></script>

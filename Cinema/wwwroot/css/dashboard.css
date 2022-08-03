@@ -1,0 +1,289 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15%;
+    height: 100vh;
+    background-color: var(--third-color);
+    padding: 25px;
+}
+
+a {
+    color: #fff;
+}
+
+li {
+    list-style-type: none;
+}
+
+.sidebar-logo {
+    text-align: center;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #999;
+}
+
+.sidebar-dashboard {
+    margin-top: 35px;
+    margin-left: 15px;
+    font-size: 16px;
+}
+
+
+
+.sidebar-item {
+    margin: 40px 0;
+}
+
+.sidebar-item i {
+    width: 25px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.sidebar-item:hover {
+    color: var(--second-color);
+
+}
+
+.sidebar-item a:hover {
+    color: var(--second-color);
+
+}
+
+
+.container {
+    width: 85%;
+    margin-left: 15%;
+    padding: 35px;
+    height: auto;
+
+}
+
+.movie-create {
+    margin-bottom: 35px;
+}
+
+.movie-heading {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.movie-add {
+    border: none;
+    outline: none;
+    padding: 8px;
+    transform: translateY(-15px);
+    border-radius: 10px;
+    background-color: var(--second-color);
+    color: #fff;
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+.movie-add:hover {
+    opacity: 0.9;
+}
+
+.movie-wraper {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.movie-card {
+    width: calc(20% - 10px);
+    height: 395px;
+    padding: 15px;
+    background-color: #0C1012;
+    color: #fff;
+    text-align: center;
+}
+
+.movie-action {
+    margin-top: 15px;
+}
+
+.movie-btn {
+    border: none;
+    outline: none;
+    padding: 12px;
+    background-color: var(--second-color);
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.movie-btn:hover {
+    opacity: 0.9;
+}
+
+
+.create {
+    position: fixed;
+    width: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 25px;
+    background-color: var(--main-color);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.create.create-show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.create-model {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    font-size: 17px;
+}
+
+.create-model-right {
+    cursor: pointer;
+}
+
+
+.create-form {
+    margin: 15px 0;
+}
+
+.create-input, .create-select {
+    border: none;
+    outline: none;
+    padding: 13px;
+    width: 100%;
+}
+
+.create-textarea {
+    width: 100%;
+    padding: 13px;
+}
+
+.create-lable {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.create-submit {
+    border: none;
+    outline: none;
+    padding: 13px;
+    width: 100%;
+    background-color: var(--second-color);
+    cursor: pointer;
+    color: #fff;
+}
+
+.create-submit:hover {
+    opacity: 0.8;
+}
+
+
+
+
+.update {
+    position: fixed;
+    width: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 25px;
+    background-color: var(--main-color);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.update.update-show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.update-model {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    font-size: 17px;
+}
+
+.update-model-right {
+    cursor: pointer;
+}
+
+
+.update-form {
+    margin: 15px 0;
+}
+
+.update-input, .update-select {
+    border: none;
+    outline: none;
+    padding: 13px;
+    width: 100%;
+}
+
+.update-textarea {
+    width: 100%;
+    padding: 13px;
+}
+
+.update-lable {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.update-submit {
+    border: none;
+    outline: none;
+    padding: 13px;
+    width: 100%;
+    background-color: var(--second-color);
+    cursor: pointer;
+    color: #fff;
+}
+
+.update-submit:hover {
+    opacity: 0.8;
+}
+
+
+
+
+
+.delete {
+    position: fixed;
+    width: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 25px 25px 70px 25px;
+    background-color: var(--main-color);
+
+}
+
+.delete-model {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    font-size: 17px;
+}
+
+.delete-btn {
+    padding: 13px;
+    background-color: var(--second-color);
+    border-radius: 5px
+}
+
+.delete-btn:hover {
+    opacity: 0.8;
+}
+
+.delete-close {
+    cursor: pointer;
+}
